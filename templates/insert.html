@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Earthquake Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+  </head>
+  <body>
+    <form method="POST" action="login">
+      <div class="header">
+        <div class="login-register">
+            <button style="background-color: black; color: white; float: right;" type="submit" id="login-btn">Login</button>
+        </div>
+      </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <video autoplay muted loop id="bgVideo">
+      <source src={{ url_for('static', filename="Earthquake.mp4") }} type="video/mp4">
+    </video>
+    <div class="container">
+        <h3>Insert Data into the database!</h3>
+        <div class="input-section">
+            
+          <form method="POST" action="success">
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Latitude</span>
+                <input name="a"
+                pattern="^([8-9]|([1-2][0-9])|3[0-7])(\.\d+)?$" 
+                placeholder="Format-26.76" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <p>Range- 8°4'N and 37°6'N (Indian Coordinates)</p>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Longitude</span>
+                <input name="b" 
+                pattern="^([6-8]\d(\.\d+)?|9[0-7](\.\d+)?)$" 
+                placeholder="Format-83.37" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <p>Range- 68°7'E and 97°25'E (Indian Coordinates)</p>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Magnitude</span>
+                <input name="c" 
+                pattern="[0-9]{1}(\.[0-9]+)?|10(\.0+)?" 
+                placeholder="Format-5.20" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <p>Range- 0-10 (Richter Scale)</p>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Depth</span>
+                <input name="c" 
+                pattern="^(\d{1,2}|1\d{2}|2[0-7]\d(\.\d+)?|280(\.0+)?)$" 
+                placeholder="Format-84.00" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <p>Range- 0m-280m (Indian Levels)</p>
+            
+            <div class="predict" style="text-align: center;">
+                <button style="font-size:1.5rem;margin-top:20px;" type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </body>
+</html>

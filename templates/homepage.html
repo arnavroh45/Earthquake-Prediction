@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Earthquake Prediction</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url('{{ url_for('static', filename="C:/Users/arnav/OneDrive/Desktop/ARNAV/SE/Earthquake_Prediction/templates/33217124.jpg") }}'); /* Replace with the correct path to your image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed; /* Ensures that the background image remains fixed while scrolling */
+        color: white; /* Set text color to white or a contrasting color for better readability */
+      }
+      .container {
+        background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black overlay to improve text readability */
+        padding: 20px;
+        border-radius: 10px; /* Optional: Add some border-radius to the container for a nicer look */
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="login">
+      <div class="header">
+        <div class="login-register">
+            <button style="background-color: black; color: white; float: right;" type="submit" id="login-btn">Login</button>
+        </div>
+      </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <video autoplay muted loop id="bgVideo">
+      <source src={{ url_for('static', filename="Earthquake.mp4") }} type="video/mp4">
+    </video>
+    <div class="container">
+        <h3>Enter the location!</h3>
+        <div class="input-section">
+            
+          <form method="POST" action="prediction">
+            <div class="input-group mb-3">
+              <span class="input-group-text" id="inputGroup-sizing-default">Location</span>
+              <input name="d" 
+              placeholder="Example: Delhi" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+              
+            </div>
+
+            <!-- <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Lattitude</span>
+                <input name="a" placeholder="Format-26.76" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                
+            </div>
+            <p>Range- 8°4'N and 37°6'N (Indian Coordinates)</p>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Longitude</span>
+                <input name="b" placeholder="Format-83.37" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <p>Range- 68°7'E and 97°25'E (Indian Coordinates)</p>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Height</span>
+                <input name="c" placeholder="Format-84.00" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            </div>
+            <p>Range- 0m-280m (Indian Levels)</p> -->
+            
+            <div class="predict" style="text-align: center;">
+                <button style="font-size:1.5rem;margin-top:20px;" type="submit" class="btn btn-primary">Predict</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </body>
+</html>
